@@ -57,6 +57,6 @@ for nombre, (modelo, parametros) in modelos.items():
         mlflow.log_metric("F1", f1_score(y_test, pred))
         mlflow.log_metric("ROC-AUC", roc_auc_score(y_test, prob))
         mlflow.log_metric("F1_CV", busqueda.best_score_)
-        mlflow.sklearn.log_model(mejor, name="modelo")
+        mlflow.sklearn.log_model(mejor, name="modelo", serialization_format="cloudpickle")
 
     print(nombre, "registrado correctamente.")
